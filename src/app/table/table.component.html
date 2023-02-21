@@ -1,0 +1,127 @@
+<div class="card m-4 ">
+    <div class="card-header bg-success"><h1 style="text-align: center;" class="text-light">Employee details</h1></div>
+    <div class="card-body m-2">
+        <table class="table table-striped">
+            <thead class="h4">
+                <th class="h4">ID</th>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+                <th>Salary</th>
+                <th>Location</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let data of detailsArray">
+                    <td>{{data.id}}</td>
+                    <td>
+                        <div *ngIf="data.isEdit">
+                            <input type="text" [(ngModel)]="data.ename" class="form-control">
+                        </div>
+                        <div *ngIf="!data.isEdit">
+                            {{data.ename}}
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="data.isEdit">
+                            <input type="text" [(ngModel)]="data.age" class="form-control">
+                        </div>
+                        <div *ngIf="!data.isEdit">
+                            {{data.age}}
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="data.isEdit">
+                            <input type="text" [(ngModel)]="data.gender" class="form-control">
+                        </div>
+                        <div *ngIf="!data.isEdit">
+                            {{data.gender}}
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="data.isEdit">
+                            <input type="text" [(ngModel)]="data.salary" class="form-control">
+                        </div>
+                        <div *ngIf="!data.isEdit">
+                            {{data.salary | currency:'INR'}}
+                        </div>
+                        
+                    </td>
+                    <td>
+                        <div *ngIf="data.isEdit">
+                            <input type="text" [(ngModel)]="data.location" class="form-control inp">
+                        </div>
+                        <div *ngIf="!data.isEdit">
+                            {{data.location}}
+                        </div>
+                    </td>
+                    <td>
+                        <div *ngIf="data.isEdit" style="display: flex">
+                           <button class="btn btn-sm btn-success" (click)="updateDetails(data)" >Update</button>
+                           <button class="btn btn-sm btn-danger" (click)="cancelButton(data)" >Cancel</button>
+                        </div>
+                        <div *ngIf="!data.isEdit">
+                            <button class="btn btn-sm btn-success" (click)="editData(data)">Edit</button>
+                        </div>
+                    </td>
+                    <td>
+                        <button class="btn btn-sm btn-danger" (click)="deleteDetails(data)" *ngIf="showDelete"> Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+            
+        </table>
+    </div>
+    <div class="card-footer">
+        <h2 class="text-success cursor" style="text-align: center;"  data-bs-toggle="modal" data-bs-target="#example">+ Add details </h2>
+    </div>
+      
+</div>
+
+
+
+
+
+<div class="modal" id="example" tabindex="-1">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="col-md-4 offset-md-4" >
+                <div class="card">
+                    <div class="card-body">
+
+                <form #detailsForm="ngForm" (ngSubmit)="onsubmit(detailsForm)">
+                    
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="ename" name="ename" >
+                
+                    <label for="age" class="form-label">Age</label>
+                    <input type="number" class="form-control" [(ngModel)]="age" name="age" >
+                
+                    <label for="gender" class="form-label">Gender</label>
+                    <input type="text" class="form-control" [(ngModel)]="gender" name="gender" >
+                
+                    <label for="salary" class="form-label">Salary</label>
+                    <input type="number" class="form-control" [(ngModel)]="salary" name="salary" >
+                
+                    <label for="location" class="form-label">Location</label>
+                    <input type="text" class="form-control" [(ngModel)]="location" name="location" >
+                    
+                </form>
+                </div>
+                </div>
+                </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button class="btn btn-success text-light center" (click)="postDetails()" data-bs-dismiss="modal">Add details</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

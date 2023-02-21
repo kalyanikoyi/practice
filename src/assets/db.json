@@ -1,0 +1,40 @@
+{
+  "details": [
+    {
+      "id": 1,
+      "ename": "Chalapathi",
+      "age": 36,
+      "gender": "Male ",
+      "salary": 100000,
+      "location": "Peridepi",
+      "isEdit": false
+    },
+    {
+      "ename": "kalyani",
+      "age": 26,
+      "gender": "Female",
+      "salary": 100000,
+      "location": "Tanguturu",
+      "isEdit": false,
+      "id": 2
+    },
+    {
+      "id": 3,
+      "ename": "Manasvi",
+      "age": 4,
+      "gender": "Female",
+      "salary": 10000000,
+      "location": "Hyderabad",
+      "isEdit": false
+    },
+    {
+      "id": 4,
+      "ename": "Manvika",
+      "age": 3,
+      "gender": "Female",
+      "salary": 100000,
+      "location": "Ongole",
+      "isEdit": false
+    }
+  ]
+}
